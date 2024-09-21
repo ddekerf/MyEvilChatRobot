@@ -1,0 +1,70 @@
+﻿@page "/"
+
+@using MyEvilChatRobot.UI.Services
+@inject IJSRuntime JS
+@inject StreamService stream
+
+<div class="chat-container">
+    <div class="chat-history">
+        <div class="chat-message user-message">Hello SpookyGPT!</div>
+        <div class="chat-message bot-response">Greetings, brave soul! Welcome to my shadowy corner...</div>
+        @foreach (var chatEntry in chatHistory)
+        {
+            <div class="chat-message @(chatEntry.IsUser ? "user-message" : "bot-response")">
+                <p>@chatEntry.Message</p>
+            </div>
+        }
+    </div>
+
+    <div class="input-container">
+        <textarea @bind="UserInput" placeholder="Type your message..." rows="1"></textarea>
+        <button @onclick="StartStream" disabled="@isStreaming">Send</button>
+    </div>
+</div>
+
+<script>
+    function scrollToBottom() {
+        var chatHistory = document.querySelector('.chat-history');
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+    }
+</script>
+
+
+@code {
+    private string UserInput { get; set; }
+    private bool isStreaming = false;
+    private List<ChatEntry> chatHistory = new List<ChatEntry>();
+
+    private async Task StartStream()
+    {
+
+        if (string.IsNullOrWhiteSpace(UserInput)) return;
+
+        // Add user input to the chat history
+        chatHistory.Add(new ChatEntry { Message = UserInput, IsUser = true });
+        var userInputText = UserInput;
+        UserInput = string.Empty;
+        isStreaming = true;
+
+        // Add an initial empty entry for the bot response (this will be updated with chunks)
+        var botEntry = new ChatEntry { Message = string.Empty, IsUser = false };
+        chatHistory.Add(botEntry);
+
+        // Use the ChatService to stream responses
+        await stream.StreamResponse(userInputText, async (chunk) =>
+        {
+            botEntry.Message += chunk;  // Append the chunk to the existing bot message
+            await InvokeAsync(StateHasChanged);  // Trigger UI update
+            await JS.InvokeVoidAsync("scrollToBottom"); // Scroll to the bottom after each chunk
+        });
+
+        isStreaming = false;
+    }
+
+    public class ChatEntry
+    {
+        public string Message { get; set; }
+        public bool IsUser { get; set; }
+    }
+}
+

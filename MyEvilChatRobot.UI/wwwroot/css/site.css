@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+h1:focus {
+    outline: none;
+}
+
+a, .btn-link {
+    color: #0071c1;
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* Chat container now takes up most of the screen */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh; /* Increased to nearly full screen */
+    width: 80vw; /* Increased to take most of the viewport's width */
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Chat history expands with the container */
+.chat-history {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+/* Chat message styling */
+.chat-message {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    line-height: 1.4;
+    max-width: 75%;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-radius: 15px 15px 0 15px;
+}
+
+.bot-response {
+    background-color: #f1f1f1;
+    color: black;
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0;
+}
+
+/* Input container fixed at the bottom */
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+    .input-container textarea {
+        flex-grow: 1;
+        resize: none;
+        padding: 10px;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        font-size: 1rem;
+        min-height: 40px;
+        background-color: #ffffff;
+    }
+
+    .input-container button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .input-container button:hover {
+            background-color: #0056b3;
+        }
+
+/* Scrollbar styling */
+.chat-history::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-history::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
