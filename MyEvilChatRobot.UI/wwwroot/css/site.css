@@ -1,120 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Retro pixel font */
 
+/* Background setup for the entire page */
 html, body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f6f9;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #141414; /* Dark background for contrast */
+    background-image: url('path-to-your-pixel-background.png'); /* Optional pixelated background image */
+    background-size: cover; /* Cover the entire page */
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+    color: #ffffff;
 }
 
-h1:focus {
-    outline: none;
+.sidebar {
+    background-color:darkblue
 }
 
+/* General link and button styling */
 a, .btn-link {
-    color: #0071c1;
+    color: #00ccff;
     text-decoration: none;
+    font-size: 0.8rem; /* Small, pixel art style size */
 }
 
 .btn-primary {
     color: #fff;
-    background-color: #007bff;
+    background-color: #ff3366; /* Bright, retro color */
     border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
+    border-radius: 0; /* Pixelated, blocky edges */
+    padding: 12px 24px;
+    font-size: 0.8rem;
     transition: background-color 0.3s ease;
+    box-shadow: 2px 2px #000; /* Pixel-like shadow */
 }
 
     .btn-primary:hover {
-        background-color: #0056b3;
+        background-color: #cc0033; /* Darker tone on hover */
+        box-shadow: 2px 2px #111; /* Adjusted shadow */
     }
 
-/* Chat container now takes up most of the screen */
+/* Chat container styling */
 .chat-container {
     display: flex;
     flex-direction: column;
-    height: 90vh; /* Increased to nearly full screen */
-    width: 80vw; /* Increased to take most of the viewport's width */
-    margin: auto;
+    height: 95vh;
+    margin: 2vh 1vh 2vh 1vh;
     overflow: hidden;
+    border: 4px solid #555555; /* Pixelated look for the border */
 }
 
-/* Chat history expands with the container */
+/* Chat history section */
 .chat-history {
     flex-grow: 1;
     overflow-y: auto;
-    padding: 20px;
-    background-color: #ffffff;
+    padding: 15px;
+    background-color: #1c1c1c; /* Darker background for chat */
+    color: #00ff99; /* Retro green text, similar to old terminals */
+    font-size: 0.9rem; /* Smaller font size for pixel art look */
+    font-family: 'Press Start 2P', cursive;
 }
 
-/* Chat message styling */
+/* Styling for individual chat messages */
 .chat-message {
     margin: 10px 0;
-    padding: 10px 15px;
-    border-radius: 15px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
-    line-height: 1.4;
-    max-width: 75%;
+    padding: 12px 15px;
+    border-radius: 0; /* Blocky corners */
+    box-shadow: 2px 2px #333; /* Pixel-style shadow */
+    font-size: 0.9rem;
 }
 
 .user-message {
-    background-color: #007bff;
+    background-color: #ff3366;
     color: white;
     align-self: flex-end;
-    border-radius: 15px 15px 0 15px;
+    border-radius: 0; /* Blocky edges */
+    box-shadow: 2px 2px #111;
 }
 
 .bot-response {
-    background-color: #f1f1f1;
-    color: black;
+    background-color: #222;
+    color: #00ff99; /* Retro terminal green */
     align-self: flex-start;
-    border-radius: 15px 15px 15px 0;
+    border-radius: 0; /* Blocky corners */
+    box-shadow: 2px 2px #111;
 }
 
-/* Input container fixed at the bottom */
+/* Input section styling */
 .input-container {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: #f8f9fa;
-    border-top: 1px solid #ddd;
+    background-color: #333;
+    border-top: 4px solid #444;
 }
 
     .input-container textarea {
         flex-grow: 1;
         resize: none;
-        padding: 10px;
-        border-radius: 15px;
-        border: 1px solid #ccc;
+        padding: 12px;
+        border-radius: 0; /* Blocky edges */
+        border: 2px solid #555;
         margin-right: 10px;
         font-size: 1rem;
-        min-height: 40px;
-        background-color: #ffffff;
+        background-color: #1c1c1c;
+        color: #00ff99;
     }
 
     .input-container button {
-        padding: 10px 20px;
-        background-color: #007bff;
+        padding: 12px 20px;
+        background-color: #ff3366;
         color: white;
         border: none;
-        border-radius: 15px;
+        border-radius: 0; /* Blocky edges */
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        box-shadow: 2px 2px #000;
     }
 
         .input-container button:hover {
-            background-color: #0056b3;
+            background-color: #cc0033;
+            box-shadow: 2px 2px #111;
         }
 
 /* Scrollbar styling */
 .chat-history::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 
 .chat-history::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    background-color: #00ccff;
+    border-radius: 0; /* Blocky scroll */
+}
+
+/* Evil robot image */
+.evil-robot-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.evil-robot-pixelart {
+    width: 150px;
+    image-rendering: pixelated; /* Keep the pixel art look */
+    margin-top: 10px;
 }
