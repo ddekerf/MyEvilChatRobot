@@ -2,10 +2,22 @@ services:
   myevilchatrobot.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80  
+      - ModelId=daves-gpt4
+      - Endpoint=https://ai-dave.openai.azure.com/
+      - ApiKey= fill-in  # Fill in your own code
+    ports:
+      - "32710:80"  # This exposes port 32710 on your host, but the internal port inside the container is 80
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  myevilchatrobot.ui:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
-      - "80"
-      - "443"
+    - "5001:80"    # Expose UI on port 5001 for HTTP
+    - "5002:443"   # Expose UI on port 5002 for HTTPS
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

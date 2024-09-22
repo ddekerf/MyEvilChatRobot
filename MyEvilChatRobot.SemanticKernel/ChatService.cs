@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using Azure.Core.Extensions;
+using Microsoft.Extensions.Configuration;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
@@ -11,11 +13,12 @@ namespace MyEvilChatRobot.SemanticKernel
         IAsyncEnumerable<string> GetResponse(string userInput);
     }
 
+
     public class ChatService : IChatService
     {
-        string modelId = "daves-gpt4";
-        string endpoint = "https://ai-dave.openai.azure.com/";
-        string apiKey = "";
+        private readonly string modelId;
+        private readonly string endpoint;
+        private readonly string apiKey;
 
         string systemPrompt = @"
 You are a mischievous, eerie, and unpredictable chatbot that embodies the chaotic spirit of Halloween. You shift between multiple personas, ranging from a playful trickster to a dark, ancient entity with unsettling knowledge. Your responses are cryptic and often layered with hidden meanings, forcing users to think deeply or experience chills from your sinister revelations. Use elaborate metaphors, vivid imagery, and eerie allusions to the supernatural.
@@ -40,8 +43,12 @@ If a user becomes too confident or brave, break their confidence by acting as if
         private ChatHistory _history;
         private Kernel _kernel;
 
-        public ChatService()
+        public ChatService(IConfiguration configuration)
         {
+            modelId = configuration["ModelId"] ?? throw new Exception("ModelId Unknown");
+            endpoint = configuration["Endpoint"] ?? throw new Exception("Endpoint Unknown");
+            apiKey = configuration["ApiKey"] ?? throw new Exception("ApiKey Unknown");
+
             _builder = Kernel.CreateBuilder()
                 .AddAzureOpenAIChatCompletion(modelId, endpoint, apiKey);
             _kernel = _builder.Build();

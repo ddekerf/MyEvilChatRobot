@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "myevilchatrobot.api": "StartDebugging"
+        "myevilchatrobot.api": "StartDebugging",
+        "myevilchatrobot.ui": "StartDebugging"
       }
     }
   }

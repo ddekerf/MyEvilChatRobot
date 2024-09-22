@@ -5,7 +5,7 @@ namespace MyEvilChatRobot.UI.Services;
 public class StreamService
 {
     private readonly HttpClient _httpClient;
-    private const string ApiUrl = "https://localhost:7189/api/MyEvilChatbot/stream"; // API URL
+    private const string ApiUrl = "http://myevilchatrobot.api/api/MyEvilChatbot/stream"; // API URL
 
     public StreamService(HttpClient httpClient)
     {

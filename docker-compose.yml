@@ -4,3 +4,10 @@ services:
     build:
       context: .
       dockerfile: MyEvilChatRobot.API/Dockerfile
+
+  myevilchatrobot.ui:
+    image: ${DOCKER_REGISTRY-}myevilchatrobotui
+    build:
+      context: .
+      dockerfile: MyEvilChatRobot.UI/Dockerfile
+
