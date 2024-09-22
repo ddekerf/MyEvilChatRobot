@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyEvilChatRobot.UI", "MyEvi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyEvilChatRobot.SemanticKernel", "MyEvilChatRobot.SemanticKernel\MyEvilChatRobot.SemanticKernel.csproj", "{C1068CEA-1EC0-4D4C-9F53-C4372B9FD365}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{11E253C4-274E-468D-AFA7-C5BB9C337DC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{C1068CEA-1EC0-4D4C-9F53-C4372B9FD365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1068CEA-1EC0-4D4C-9F53-C4372B9FD365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1068CEA-1EC0-4D4C-9F53-C4372B9FD365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E253C4-274E-468D-AFA7-C5BB9C337DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E253C4-274E-468D-AFA7-C5BB9C337DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E253C4-274E-468D-AFA7-C5BB9C337DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E253C4-274E-468D-AFA7-C5BB9C337DC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

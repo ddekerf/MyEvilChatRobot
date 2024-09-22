@@ -1,0 +1,6 @@
+services:
+  myevilchatrobot.api:
+    image: ${DOCKER_REGISTRY-}myevilchatrobotapi
+    build:
+      context: .
+      dockerfile: MyEvilChatRobot.API/Dockerfile
