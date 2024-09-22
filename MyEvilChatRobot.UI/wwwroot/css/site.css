@@ -3,8 +3,7 @@
 /* Background setup for the entire page */
 html, body {
     font-family: 'Press Start 2P', cursive;
-    background-color: #141414; /* Dark background for contrast */
-    background-image: url('path-to-your-pixel-background.png'); /* Optional pixelated background image */
+    background-color: #141414; /* Dark background for contrast 
     background-size: cover; /* Cover the entire page */
     margin: 0;
     padding: 0;
